@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://b1main000001"]
+
+[ext_resource type="Script" uid="uid://dgxv6knxvu5mr" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://b1player0001" path="res://scenes/player.tscn" id="2_player"]
+[ext_resource type="Script" uid="uid://b2t2hy8w4yajf" path="res://scripts/game_manager.gd" id="3_gm"]
+[ext_resource type="Script" uid="uid://beje1jtb0b1oc" path="res://scripts/spawner.gd" id="4_spawn"]
+[ext_resource type="PackedScene" uid="uid://b3hud00001" path="res://scenes/hud.tscn" id="5_hud"]
+[ext_resource type="PackedScene" uid="uid://b4wall00001" path="res://scenes/wall.tscn" id="6_wall"]
+[ext_resource type="PackedScene" uid="uid://b6buffui001" path="res://scenes/buff_ui.tscn" id="7_buffui"]
+[ext_resource type="PackedScene" uid="uid://ccrosshair1" path="res://scenes/crosshair.tscn" id="9_cross"]
+[ext_resource type="PackedScene" uid="uid://cpausemenu01" path="res://scenes/pause_menu.tscn" id="10_pause"]
+[ext_resource type="PackedScene" uid="uid://camiya00001" path="res://scenes/amiya.tscn" id="11_amiya"]
+
+[sub_resource type="RectangleShape2D" id="BorderTop"]
+size = Vector2(1400, 60)
+
+[sub_resource type="RectangleShape2D" id="BorderBottom"]
+size = Vector2(1400, 60)
+
+[sub_resource type="RectangleShape2D" id="BorderLeft"]
+size = Vector2(60, 760)
+
+[sub_resource type="RectangleShape2D" id="BorderRight"]
+size = Vector2(60, 760)
+
+[node name="Main" type="Node2D" unique_id=1318592378]
+script = ExtResource("1_main")
+
+[node name="Background" type="ColorRect" parent="." unique_id=478502432]
+z_index = -10
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.09, 0.11, 0.15, 1)
+
+[node name="Walls" type="Node2D" parent="." unique_id=834593728]
+
+[node name="WallLeft" parent="Walls" unique_id=1827742469 instance=ExtResource("6_wall")]
+position = Vector2(220, 360)
+
+[node name="WallRight" parent="Walls" unique_id=902323874 instance=ExtResource("6_wall")]
+position = Vector2(1060, 360)
+
+[node name="Borders" type="Node2D" parent="." unique_id=1025794968]
+
+[node name="Top" type="StaticBody2D" parent="Borders" unique_id=2015638555]
+position = Vector2(640, -30)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Top" unique_id=1945021578]
+shape = SubResource("BorderTop")
+
+[node name="Bottom" type="StaticBody2D" parent="Borders" unique_id=1978134044]
+position = Vector2(640, 750)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Bottom" unique_id=1303310955]
+shape = SubResource("BorderBottom")
+
+[node name="Left" type="StaticBody2D" parent="Borders" unique_id=1292589433]
+position = Vector2(-30, 360)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Left" unique_id=1155793132]
+shape = SubResource("BorderLeft")
+
+[node name="Right" type="StaticBody2D" parent="Borders" unique_id=11578933]
+position = Vector2(1310, 360)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Right" unique_id=1270245593]
+shape = SubResource("BorderRight")
+
+[node name="DamageNumbers" type="Node2D" parent="." groups=["damage_layer"]]
+z_index = 100
+
+[node name="Player" parent="." unique_id=1166722407 instance=ExtResource("2_player")]
+position = Vector2(640, 360)
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1368279225]
+script = ExtResource("4_spawn")
+wall_clearance = 50.0
+
+[node name="GameManager" type="Node" parent="." groups=["game_manager"] unique_id=453994295]
+script = ExtResource("3_gm")
+hp_base = 60.0
+hp_step = 18.0
+
+[node name="HUD" parent="." unique_id=672848202 instance=ExtResource("5_hud")]
+
+[node name="BuffUI" parent="." unique_id=2060328740 instance=ExtResource("7_buffui")]
+
+[node name="CrosshairLayer" parent="." unique_id=424470030 instance=ExtResource("9_cross")]
+
+[node name="Amiya" parent="." unique_id=2138753744 instance=ExtResource("11_amiya")]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 200
+follow_viewport_enabled = false
+
+[node name="PauseMenu" parent="UILayer" instance=ExtResource("10_pause")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

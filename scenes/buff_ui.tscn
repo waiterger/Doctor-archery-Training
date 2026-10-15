@@ -1,0 +1,156 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6buffui001"]
+
+[ext_resource type="Script" path="res://scripts/buff_ui.gd" id="1_buffui"]
+
+[sub_resource type="StyleBoxFlat" id="SB_BtnNormal"]
+bg_color = Color(0.24, 0.26, 0.33, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 18.0
+content_margin_top = 8.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="SB_BtnHover"]
+bg_color = Color(0.34, 0.38, 0.48, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 18.0
+content_margin_top = 8.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+
+[node name="BuffUI" type="CanvasLayer"]
+process_mode = 3
+layer = 50
+script = ExtResource("1_buffui")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03, 0.04, 0.06, 0.94)
+mouse_filter = 2
+
+[node name="Root" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 40
+
+[node name="VBox" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Title" type="Label" parent="Root/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.55, 1)
+theme_override_font_sizes/font_size = 40
+text = "选择强化"
+horizontal_alignment = 1
+
+[node name="Hint" type="Label" parent="Root/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.75, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 17
+text = "点击卡片确认 · 本局永久生效"
+horizontal_alignment = 1
+
+[node name="CardRow" type="HBoxContainer" parent="Root/VBox"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+mouse_filter = 1
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="ActionRow" type="HBoxContainer" parent="Root/VBox"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="BtnSkip" type="Button" parent="Root/VBox/ActionRow"]
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+mouse_filter = 0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.75, 0.78, 0.85, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("SB_BtnNormal")
+theme_override_styles/hover = SubResource("SB_BtnHover")
+theme_override_styles/pressed = SubResource("SB_BtnHover")
+theme_override_styles/focus = SubResource("SB_BtnHover")
+text = "跳过"
+
+[node name="BtnRefresh" type="Button" parent="Root/VBox/ActionRow"]
+custom_minimum_size = Vector2(170, 46)
+layout_mode = 2
+mouse_filter = 0
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0.86, 0.45, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("SB_BtnNormal")
+theme_override_styles/hover = SubResource("SB_BtnHover")
+theme_override_styles/pressed = SubResource("SB_BtnHover")
+theme_override_styles/focus = SubResource("SB_BtnHover")
+text = "刷新（1💰）"
+
+[node name="CardTemplate" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(250, 250)
+offset_left = -400.0
+offset_top = -400.0
+offset_right = -150.0
+offset_bottom = -150.0
+focus_mode = 0
+mouse_filter = 0
+
+[node name="VBox" type="VBoxContainer" parent="CardTemplate"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="CardTemplate/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 22
+text = "BuffName"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="DescLabel" type="Label" parent="CardTemplate/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.72, 0.76, 0.84, 1)
+theme_override_font_sizes/font_size = 14
+text = "BuffDesc"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="StatusLabel" type="Label" parent="CardTemplate/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 19
+text = "新"
+horizontal_alignment = 1

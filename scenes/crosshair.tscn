@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccrosshair1"]
+
+[ext_resource type="Script" path="res://scripts/crosshair.gd" id="1_cross"]
+[ext_resource type="Script" path="res://scripts/crosshair_draw.gd" id="2_draw"]
+
+[node name="CrosshairLayer" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_cross")
+base_size = 14.0
+
+[node name="Crosshair" type="Node2D" parent="."]
+script = ExtResource("2_draw")
+radius = 14.0
+line_width = 2.0

@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctitle000001"]
+
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_title"]
+[ext_resource type="PackedScene" path="res://scenes/settings_panel.tscn" id="2_panel"]
+
+[sub_resource type="StyleBoxFlat" id="SB_BtnNormal"]
+bg_color = Color(0.16, 0.2, 0.28, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.45, 0.62, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="SB_BtnHover"]
+bg_color = Color(0.24, 0.32, 0.45, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.75, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="TitleScreen" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_title")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.09, 0.11, 0.15, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+theme_override_constants/separation = 22
+
+[node name="Title" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+theme_override_colors/font_color = Color(1, 0.86, 0.5, 1)
+text = "博士的射击训练"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.62, 0.72, 0.88, 1)
+text = "WASD 移动 · 左键/M 蓄力射击 · 空格切元素 · Q 心流 · 中键/N 护盾"
+horizontal_alignment = 1
+
+[node name="Sep" type="HSeparator" parent="Center/VBox"]
+layout_mode = 2
+
+[node name="BtnStart" type="Button" parent="Center/VBox"]
+custom_minimum_size = Vector2(320, 54)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("SB_BtnNormal")
+theme_override_styles/hover = SubResource("SB_BtnHover")
+theme_override_styles/pressed = SubResource("SB_BtnHover")
+theme_override_styles/focus = SubResource("SB_BtnHover")
+text = "开始训练"
+
+[node name="BtnSetting" type="Button" parent="Center/VBox"]
+custom_minimum_size = Vector2(320, 54)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("SB_BtnNormal")
+theme_override_styles/hover = SubResource("SB_BtnHover")
+theme_override_styles/pressed = SubResource("SB_BtnHover")
+theme_override_styles/focus = SubResource("SB_BtnHover")
+text = "设置"
+
+[node name="BtnQuit" type="Button" parent="Center/VBox"]
+custom_minimum_size = Vector2(320, 54)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("SB_BtnNormal")
+theme_override_styles/hover = SubResource("SB_BtnHover")
+theme_override_styles/pressed = SubResource("SB_BtnHover")
+theme_override_styles/focus = SubResource("SB_BtnHover")
+text = "退出"
+
+[node name="Hint" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.55, 0.58, 0.66, 1)
+text = "提示：靶子会移动，碰到你会扣血\nQ键开启心流状态（5秒内敌人减速，蓄力加速，冷却20秒）\n中键或 N 开启阿米娅护盾（20秒免疫伤害，冷却90秒）"
+horizontal_alignment = 1
+
+[node name="SettingsPanel" parent="." instance=ExtResource("2_panel")]

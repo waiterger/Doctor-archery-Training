@@ -1,0 +1,250 @@
+[gd_scene format=3 uid="uid://cpausemenu01"]
+
+[ext_resource type="Script" uid="uid://cbewrvdsv3mf4" path="res://scripts/pause_menu.gd" id="1_pause"]
+[ext_resource type="PackedScene" uid="uid://csetpanel01" path="res://scenes/settings_panel.tscn" id="2_panel"]
+[ext_resource type="Script" uid="uid://cs7khmdh1r4ar" path="res://scripts/shop_panel.gd" id="3_shop"]
+
+[sub_resource type="StyleBoxFlat" id="SB_Panel"]
+bg_color = Color(0.09, 0.1, 0.14, 0.97)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.4, 0.55, 0.75, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="SB_BtnN"]
+bg_color = Color(0.16, 0.2, 0.28, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.45, 0.62, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="SB_BtnH"]
+bg_color = Color(0.24, 0.32, 0.45, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.75, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PauseMenu" type="Control" unique_id=2133537843]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_pause")
+
+[node name="Dim" type="ColorRect" parent="." unique_id=2003086147]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=1871357690]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="Center" unique_id=695104341]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("SB_Panel")
+
+[node name="VBox" type="VBoxContainer" parent="Center/Panel" unique_id=793018851]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="Center/Panel/VBox" unique_id=1247145257]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.5, 1)
+theme_override_font_sizes/font_size = 36
+text = "暂停"
+horizontal_alignment = 1
+
+[node name="BtnResume" type="Button" parent="Center/Panel/VBox" unique_id=734225907]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("SB_BtnN")
+theme_override_styles/pressed = SubResource("SB_BtnH")
+theme_override_styles/hover = SubResource("SB_BtnH")
+theme_override_styles/focus = SubResource("SB_BtnH")
+text = "继续游戏"
+
+[node name="BtnShop" type="Button" parent="Center/Panel/VBox" unique_id=1811290700]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.5, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("SB_BtnN")
+theme_override_styles/pressed = SubResource("SB_BtnH")
+theme_override_styles/hover = SubResource("SB_BtnH")
+theme_override_styles/disabled = SubResource("SB_BtnN")
+theme_override_styles/focus = SubResource("SB_BtnH")
+text = "🛒 商店"
+
+[node name="BtnSetting" type="Button" parent="Center/Panel/VBox" unique_id=166888569]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("SB_BtnN")
+theme_override_styles/pressed = SubResource("SB_BtnH")
+theme_override_styles/hover = SubResource("SB_BtnH")
+theme_override_styles/focus = SubResource("SB_BtnH")
+text = "设置"
+
+[node name="BtnRestart" type="Button" parent="Center/Panel/VBox" unique_id=1239108102]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("SB_BtnN")
+theme_override_styles/pressed = SubResource("SB_BtnH")
+theme_override_styles/hover = SubResource("SB_BtnH")
+theme_override_styles/focus = SubResource("SB_BtnH")
+text = "重新开始"
+
+[node name="BtnMenu" type="Button" parent="Center/Panel/VBox" unique_id=1124676996]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("SB_BtnN")
+theme_override_styles/pressed = SubResource("SB_BtnH")
+theme_override_styles/hover = SubResource("SB_BtnH")
+theme_override_styles/focus = SubResource("SB_BtnH")
+text = "返回主菜单"
+
+[node name="SkillPanel" type="VBoxContainer" parent="Center/Panel/VBox" unique_id=1811290551]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="Center/Panel/VBox/SkillPanel" unique_id=1811290552]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.78, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "技能面板"
+horizontal_alignment = 1
+
+[node name="GoldLabel" type="Label" parent="Center/Panel/VBox/SkillPanel" unique_id=1811290599]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.32, 1)
+theme_override_font_sizes/font_size = 16
+text = "当前金币：0"
+horizontal_alignment = 1
+
+[node name="SkillList" type="VBoxContainer" parent="Center/Panel/VBox/SkillPanel" unique_id=1811290553]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="Empty" type="Label" parent="Center/Panel/VBox/SkillPanel/SkillList" unique_id=1811290554]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.52, 0.58, 1)
+theme_override_font_sizes/font_size = 14
+text = "（尚未获得任何强化）"
+horizontal_alignment = 1
+
+[node name="Hint" type="Label" parent="Center/Panel/VBox" unique_id=1412800231]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.62, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+text = "Esc 继续"
+horizontal_alignment = 1
+
+[node name="ShopPanel" type="Control" parent="." unique_id=313270125]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_shop")
+
+[node name="Dim" type="ColorRect" parent="ShopPanel" unique_id=898405316]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.02, 0.03, 0.05, 0.88)
+
+[node name="Center" type="CenterContainer" parent="ShopPanel" unique_id=306981068]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="ShopPanel/Center" unique_id=58396882]
+custom_minimum_size = Vector2(540, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("SB_Panel")
+
+[node name="VBox" type="VBoxContainer" parent="ShopPanel/Center/Panel" unique_id=225499395]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="ShopPanel/Center/Panel/VBox" unique_id=217090033]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.5, 1)
+theme_override_font_sizes/font_size = 28
+text = "🛒 商店"
+horizontal_alignment = 1
+
+[node name="GoldLabel" type="Label" parent="ShopPanel/Center/Panel/VBox" unique_id=1834565221]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.32, 1)
+theme_override_font_sizes/font_size = 19
+text = "当前金币：0"
+horizontal_alignment = 1
+
+[node name="ItemList" type="VBoxContainer" parent="ShopPanel/Center/Panel/VBox" unique_id=151329669]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BtnShopBack" type="Button" parent="ShopPanel/Center/Panel/VBox" unique_id=1420284141]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("SB_BtnN")
+theme_override_styles/pressed = SubResource("SB_BtnH")
+theme_override_styles/hover = SubResource("SB_BtnH")
+theme_override_styles/focus = SubResource("SB_BtnH")
+text = "返回"
+
+[node name="SettingsPanel" parent="." unique_id=1928402688 instance=ExtResource("2_panel")]
+layout_mode = 1

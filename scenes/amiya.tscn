@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://camiya00001"]
+
+[ext_resource type="Script" path="res://scripts/amiya.gd" id="1_amiya"]
+
+[sub_resource type="StyleBoxFlat" id="SB_Bubble"]
+bg_color = Color(0.08, 0.1, 0.16, 0.85)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.95, 0.78, 0.35, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Amiya" type="CanvasLayer"]
+layer = 20
+script = ExtResource("1_amiya")
+
+[node name="Bubble" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 72.0
+offset_right = 320.0
+offset_bottom = 152.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("SB_Bubble")
+
+[node name="VBox" type="VBoxContainer" parent="Bubble"]
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Speaker" type="Label" parent="Bubble/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.95, 0.78, 0.35, 1)
+text = "阿米娅"
+horizontal_alignment = 1
+
+[node name="Line" type="Label" parent="Bubble/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "……"
+horizontal_alignment = 1
+autowrap_mode = 2

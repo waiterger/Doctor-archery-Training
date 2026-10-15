@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2arrow0001"]
+
+[ext_resource type="Script" path="res://scripts/arrow.gd" id="1_arrow"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_arrow"]
+radius = 7.0
+
+[node name="Arrow" type="Area2D"]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_arrow")
+speed = 900.0
+lifetime = 1.6
+despawn_margin = 200.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_arrow")
+
+[node name="Visual" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(14, 0, -8, -3, -8, 3)
+color = Color(0.45, 0.75, 1, 1)
+
+[node name="Trail" type="Line2D" parent="."]
+points = PackedVector2Array(-8, 0, -34, 0)
+width = 2.0
+default_color = Color(1, 1, 1, 0.35)
+z_index = -1

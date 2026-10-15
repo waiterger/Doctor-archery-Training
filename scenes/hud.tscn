@@ -1,0 +1,122 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3hud00001"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_hud"]
+
+[sub_resource type="StyleBoxFlat" id="SB_FlowBg"]
+bg_color = Color(0.12, 0.13, 0.17, 0.85)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="SB_FlowFill"]
+bg_color = Color(1, 0.8, 0.25, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="WaveLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 224.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 26
+text = "第 1 波"
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 56.0
+offset_right = 224.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 20
+text = "分数 0"
+
+[node name="RemainLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 88.0
+offset_right = 224.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 18
+text = "剩余靶子 0"
+
+[node name="HpLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 116.0
+offset_right = 224.0
+offset_bottom = 148.0
+theme_override_font_sizes/font_size = 22
+text = "HP 5 / 5"
+
+[node name="GoldLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 148.0
+offset_right = 224.0
+offset_bottom = 180.0
+theme_override_colors/font_color = Color(1, 0.84, 0.32, 1)
+theme_override_font_sizes/font_size = 20
+text = "金币：0"
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_left = 1000.0
+offset_top = 20.0
+offset_right = 1256.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 24
+text = "下一波 3 s"
+horizontal_alignment = 2
+
+[node name="FlowLabel" type="Label" parent="."]
+offset_left = 840.0
+offset_top = 88.0
+offset_right = 1256.0
+offset_bottom = 118.0
+theme_override_colors/font_color = Color(1, 0.86, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "心流：就绪"
+horizontal_alignment = 2
+
+[node name="FlowBar" type="ProgressBar" parent="."]
+offset_left = 1056.0
+offset_top = 120.0
+offset_right = 1256.0
+offset_bottom = 132.0
+theme_override_styles/background = SubResource("SB_FlowBg")
+theme_override_styles/fill = SubResource("SB_FlowFill")
+value = 100.0
+show_percentage = false
+
+[node name="ShieldCDLabel" type="Label" parent="."]
+offset_left = 700.0
+offset_top = 560.0
+offset_right = 1256.0
+offset_bottom = 592.0
+theme_override_colors/font_color = Color(0.6, 0.85, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "阿米娅护盾：就绪（N 或 中键 释放）"
+horizontal_alignment = 2
+
+[node name="HelpLabel" type="Label" parent="."]
+offset_left = 840.0
+offset_top = 660.0
+offset_right = 1256.0
+offset_bottom = 692.0
+theme_override_font_sizes/font_size = 14
+text = "R 重开   空格切元素   Q 心流   M/左键 蓄力射击   N/中键 护盾   Esc 暂停"
+horizontal_alignment = 2
+
+[node name="ElementLabel" type="Label" parent="."]
+offset_left = 1000.0
+offset_top = 56.0
+offset_right = 1256.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 22
+text = ""
+horizontal_alignment = 2

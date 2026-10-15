@@ -1,0 +1,112 @@
+# ============================================
+#  Godot 4 项目 .gitignore
+#  仓库：Doctor-archery-Training
+#  说明：本文件用于排除不该上传的文件
+# ============================================
+
+# ---------- 1. Godot 引擎生成物 ----------
+# 编辑器缓存与导入结果（约 61MB，每次打开都在变，纯垃圾）
+.godot/
+/android/
+# Godot 4 的 C# / 单例缓存
+.mono/
+# 导出产物目录（如果你改成输出到 export/）
+export/
+
+# ---------- 2. 版权资源：不上传 ----------
+# sound-effect/ 下的音效涉及版权，明确排除
+# ⚠️ 代价：他人克隆后游戏没有音效，需在 README 中说明
+sound-effect/
+
+# ---------- 3. 打包产物：不上传（build/ 约 105MB，会超 GitHub 单文件 100MB 限制）----------
+build/
+*.exe
+*.exe~
+*.pck
+*.dll
+*.so
+*.dylib
+*.apk
+*.aab
+*.dmg
+*.msi
+*.zip
+*.7z
+*.rar
+
+# ---------- 4. Godot 编辑器本体 ----------
+# 本项目把编辑器 exe 放在项目文件夹里，绝不能提交
+Godot_v4*.exe
+*_console.exe
+rcedit-x64.exe
+
+# ---------- 5. 未被引用的历史残留资源 ----------
+# 旧版复活视频，已于 2026-10-14 被 222383898-1-16.ogv 替换
+# 无任何代码/场景引用，确认无用后排除
+42082108580-1-192-soConvert.ogv
+42082108580-1-192-soConvert.ogv.uid
+
+# ---------- 6. 编辑器临时文件 ----------
+# Godot 保存时产生的 .tmp（如 main.gd154051106.tmp）
+*.tmp
+*.temp
+*~
+*.bak
+*.swp
+*.orig
+*.rej
+
+# ---------- 7. 系统与工具文件 ----------
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS / Linux
+.DS_Store
+.AppleDouble
+._*
+.directory
+
+# ---------- 8. 工具与 IDE 目录 ----------
+.workbuddy/
+.vscode/
+.idea/
+*.code-workspace
+
+# ---------- 9. 敏感信息 ----------
+# 万一以后加了 API Key / 密码，务必保持忽略
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.json
+credentials.json
+
+# ---------- 10. 临时产物 ----------
+/tmp/
+/temp/
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# ---------- 11. 本地辅助文档（含本机绝对路径，不适合公开仓库）----------
+上传教程_GitHub与AtomGit.md
+*.local.md
+
+# ---------- 12. 误建的嵌套空仓库 ----------
+# Doctor-archery-Training/ 里有一个 Godot 自动生成的空 git 仓库，
+# 只有 .gitignore 和 .gitattributes 两个文件，没有任何项目源码，纯属多余
+# 若要删除它：删除该目录后，本行也可以一并删掉
+Doctor-archery-Training/
+
+# ---------- 13. 重建仓库时的旧 .git 备份（270MB，绝不能提交）----------
+# 教程 3.2 节会执行 mv .git .git-backup，这个备份目录必须忽略
+.git-backup/
+.git-old/
+*.git-backup
+.git.bak
